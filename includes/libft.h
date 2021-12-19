@@ -6,7 +6,7 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 23:15:59 by parkharo          #+#    #+#             */
-/*   Updated: 2021/11/19 18:27:57 by parkharo         ###   ########.fr       */
+/*   Updated: 2021/12/19 19:28:53 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
+# define BUFF_SIZE 32
+# define MAX_FD 12288
 
 typedef struct s_list
 {
@@ -71,6 +73,7 @@ int		ft_toupper(int c);
 int		ft_strequ(const char *s1, const char *s2);
 int		ft_strnequ(const char *s1, const char *s2, size_t n);
 int		ft_str_is_printable(char *s);
+int		get_next_line(const int fd, char **line);
 char	*ft_strstr(const char *hayst, const char *ndl);
 char	*ft_strnstr(const char *hayst, const char *ndl, size_t len);
 char	*ft_strcpy(char *dst, const char *src);

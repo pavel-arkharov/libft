@@ -6,7 +6,7 @@
 #    By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 10:27:30 by parkharo          #+#    #+#              #
-#    Updated: 2021/12/09 13:58:42 by parkharo         ###   ########.fr        #
+#    Updated: 2021/12/19 19:27:21 by parkharo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,8 @@ SRC = ft_putchar.c \
 	ft_lstprint.c \
 	ft_lstpush.c \
 	ft_lsttail.c \
-	ft_printnode.c
+	ft_printnode.c \
+	get_next_line.c
 
 SRC2 = $(SRC:%.c=%.o)
 
