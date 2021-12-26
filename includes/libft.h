@@ -6,7 +6,7 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 23:15:59 by parkharo          #+#    #+#             */
-/*   Updated: 2021/12/19 19:28:53 by parkharo         ###   ########.fr       */
+/*   Updated: 2021/12/26 20:57:37 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s);
 char	*ft_itoa(int nbr);
 char	*ft_strndup(const char *s1, size_t n);
+char	*ft_strsep(char **stringp, const char *delim);
 char	**ft_strsplit(const char *s, char c);
 t_list	*ft_lstnew(void const *content, size_t content_size);
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
