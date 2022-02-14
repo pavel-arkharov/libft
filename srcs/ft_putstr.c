@@ -6,7 +6,7 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 22:21:20 by parkharo          #+#    #+#             */
-/*   Updated: 2021/11/12 20:14:55 by parkharo         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:14:33 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void	ft_putstr(const char *s)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-		ft_putchar(s[i++]);
+	if (s)
+		write(1, s, ft_strlen(s));
 }

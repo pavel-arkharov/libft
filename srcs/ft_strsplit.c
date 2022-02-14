@@ -6,7 +6,7 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 15:57:51 by parkharo          #+#    #+#             */
-/*   Updated: 2021/11/24 15:17:56 by parkharo         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:19:13 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,12 @@ static	char	*populate_array(const char *s, size_t *index, char del)
 	return (word);
 }
 
-static	void	free_arr(char **arr, int i)
+static	char**	free_arr(char **arr, int i)
 {
 	while (i >= 0)
 		free(arr[i--]);
 	free(arr);
+	return (NULL);
 }
 
 char	**ft_strsplit(const char *s, char c)
@@ -85,10 +86,7 @@ char	**ft_strsplit(const char *s, char c)
 	{
 		split[i] = populate_array(s, &j, c);
 		if (!split[i])
-		{
-			free_arr(split, (int)i - 1);
-			return (NULL);
-		}
+			return (free_arr(split, (int)i - 1));
 		++i;
 	}
 	split[i] = 0;
