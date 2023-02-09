@@ -6,7 +6,7 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 23:15:59 by parkharo          #+#    #+#             */
-/*   Updated: 2022/09/29 18:10:35 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:13:51 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define BUFF_SIZE 32
 # define MAX_FD 12288
 
-typedef enum e_bool { false, true }	t_bool;
+typedef enum bool { false, true }	t_bool;
 
 typedef struct s_list
 {
