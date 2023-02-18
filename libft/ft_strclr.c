@@ -6,11 +6,11 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 22:21:32 by parkharo          #+#    #+#             */
-/*   Updated: 2021/11/10 21:43:22 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:08:15 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_strclr(char *s)
 {

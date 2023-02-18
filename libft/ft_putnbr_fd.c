@@ -6,11 +6,11 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 08:01:17 by parkharo          #+#    #+#             */
-/*   Updated: 2021/11/12 15:09:56 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:08:15 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

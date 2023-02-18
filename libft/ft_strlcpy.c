@@ -6,11 +6,11 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:42:57 by parkharo          #+#    #+#             */
-/*   Updated: 2021/11/23 19:31:22 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:08:15 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

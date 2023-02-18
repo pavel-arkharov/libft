@@ -6,11 +6,11 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 07:53:47 by parkharo          #+#    #+#             */
-/*   Updated: 2023/01/24 00:07:48 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:08:15 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

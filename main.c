@@ -1,4 +1,3 @@
-#include "./includes/ft_printf.h"
 #include "./includes/libft.h"
 
 int main() {

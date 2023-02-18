@@ -6,7 +6,7 @@
 #    By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 15:21:58 by parkharo          #+#    #+#              #
-#    Updated: 2023/02/09 11:42:14 by parkharo         ###   ########.fr        #
+#    Updated: 2023/02/16 18:58:45 by parkharo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,32 +14,32 @@
 # CFLAGS = -Wall -Wextra -Werror 
 
 
-NAME 			= libft2.a
+NAME 			= libft.a
 
-SRC_PATH 		=	./ft_printf/src/
+SRC_PATH 		=	./libft/ft_printf/
 
-SRCS_FILES		=	*.c
+SRCS_FILES		=	$(wildcard *.c)
 
 SRCS			=	$(addprefix $(SRC_PATH), $(SRCS_FILES))
 
 LIB_SRC_PATH	=	./libft/
-LIB_SRC_FILES	=	*.c
+LIB_SRC_FILES	=	$(wildcard *.c)
 
 LIB_SRCS		=	$(addprefix $(LIB_SRC_PATH), $(LIB_SRC_FILES))
 
-LIB_OBJECT_PATH		=	./ft_printf/objs/
+LIB_OBJECT_PATH		=	./libft/objs/
 LIB_OBJECT_FILES	=	$(LIB_SRC_FILES:.c=.o)
 LIB_OBJECTS			=	$(addprefix $(LIB_OBJECT_PATH), $(LIB_OBJECT_FILES))
 
-OBJECT_PATH		=	./ft_printf/objs/
+OBJECT_PATH		=	./libft/ft_printf/objs/
 OBJECT_FILES	=	$(SRCS_FILES:%.c=%.o)
 OBJECTS			=	$(addprefix $(OBJECT_PATH), $(OBJECT_FILES))
 
 COMPILE			=	gcc -Wall -Wextra -Werror
 
-INCLUDES		=	-I./includes -I./libft
+INCLUDES		=	-I./includes
 HEADERS_PATH	=	./includes/
-HEADER_FILES	=	ft_printf.h
+HEADER_FILES	=	libft.h
 HEADERS			=	$(addprefix $(HEADERS_PATH), $(HEADER_FILES))
 
 COLOR_RESET		=	\033[0m
