@@ -20,9 +20,10 @@ A library of useful C functions, created as a project for Hive Helsinki School 4
 
 To get started with this project, you will need to clone the repository onto your local machine:
 
-bashCopy code
+```
+git clone https://github.com/YOUR-USERNAME/libft.git
 
-`git clone https://github.com/YOUR-USERNAME/libft.git` 
+```
 
 Once you have cloned the repository, you can start exploring the source code and building the library.
 
@@ -34,6 +35,7 @@ The `libft` library includes several different types of functions, including:
 -   String manipulation functions (`ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strnstr`, `ft_strncmp`, `ft_strcmp`, `ft_strdup`)
 -   Character manipulation functions (`ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`)
 -   Printing functions (`ft_printf`, `ft_fprintf`, `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`)
+-	File reading functions (`get_next_line`)
 -   List manipulation functions (`ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`)
 
 For a full list of functions and their descriptions, see the `libft.h` header file.
