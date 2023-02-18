@@ -6,27 +6,24 @@
 #    By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 15:21:58 by parkharo          #+#    #+#              #
-#    Updated: 2023/02/18 13:30:49 by parkharo         ###   ########.fr        #
+#    Updated: 2023/02/18 14:50:27 by parkharo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			= libft.a
 
-SRC_PATH 		=	./srcs/ft_printf/
-SRCS_FILES		=	$(wildcard *.c)
-SRCS			=	$(addprefix $(SRC_PATH), $(SRCS_FILES))
+SRC_PATH 		=	./srcs/
+SRC2_PATH		=	./srcs/ft_printf/
+SRCS_FILES		=	$(wildcard $(SRC_PATH)*.c)
+SRCS2_FILES		=	$(wildcard $(SRC2_PATH)*.c)
 
-LIB_SRC_PATH	=	./srcs/
-LIB_SRC_FILES	=	$(wildcard *.c)
-LIB_SRCS		=	$(addprefix $(LIB_SRC_PATH), $(LIB_SRC_FILES))
-
-LIB_OBJECT_PATH		=	./srcs/objs/
-LIB_OBJECT_FILES	=	$(LIB_SRC_FILES:.c=.o)
-LIB_OBJECTS			=	$(addprefix $(LIB_OBJECT_PATH), $(LIB_OBJECT_FILES))
-
-OBJECT_PATH		=	./srcs/ft_printf/objs/
+OBJECT_PATH		=	./objs/
 OBJECT_FILES	=	$(SRCS_FILES:%.c=%.o)
+OBJECT2_FILES	=   $(SRCS2_FILES:%.c=%.o)
 OBJECTS			=	$(addprefix $(OBJECT_PATH), $(OBJECT_FILES))
+OBJECTS			+=  $(addprefix $(OBJECT_PATH), $(OBJECT2_FILES))
+OBJ 			:=  $(SRCS_FILES:$(SRCS_PATH)%.c=$(OBJECT_PATH)%.o)
+OBJ 			+=  $(SRCS_FILES2:$(SRCS2_PATH)%.c=$(OBJECT_PATH)%.o)
 
 COMPILE			=	gcc -Wall -Wextra -Werror
 
@@ -40,11 +37,20 @@ COLOR_PENDING	=	\033[0;33m
 COLOR_SUCCESS	=	\033[0;32m
 COLOR_DEFAULT	=	\033[1;34m
 
+
 all: $(NAME)
 
-$(NAME): $(LIB_OBJECTS) $(OBJECTS) $(HEADERS)
+print: 
+	@echo $(OBJ)
+
+print2: 
+	@echo $(SRCS_FILES)
+	@echo "ASDASDAS"
+	@echo $(SRCS2_FILES)
+
+$(NAME): $(OBJECTS) $(HEADERS)
 	@echo "$(NAME)     [$(COLOR_PENDING)Compiling...$(COLOR_RESET)]"
-	@ar rcs $(NAME) $(LIB_OBJECTS) $(OBJECTS) 
+	ar rcs $(NAME) $(OBJECTS) 
 	@ranlib $(NAME)
 	@echo "\033[A\033[K\033[A"
 	@echo "$(NAME)     [$(COLOR_SUCCESS)OK$(COLOR_RESET)]"
@@ -54,15 +60,9 @@ $(OBJECT_PATH)%.o: $(SRCS)
 	@mkdir $(OBJECT_PATH) 2>/dev/null || echo "" > /dev/null
 	@$(COMPILE) $(INCLUDES) -c $< -o $@ 
 
-$(LIB_OBJECT_PATH)%.o: $(LIB_SRCS)
-	@mkdir $(LIB_OBJECT_PATH) 2>/dev/null || echo "" > /dev/null
-	@$(COMPILE) $(INCLUDES) -c $< -o $@
-
 clean:
 	@echo "Deleting .o files..."
-	@rm -f $(LIB_OBJECTS)
 	@rm -f $(OBJECTS)
-	@rm -rf $(LIB_OBJECT_PATH)
 	@rm -rf $(OBJECT_PATH)
 
 fclean: clean
