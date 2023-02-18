@@ -6,7 +6,7 @@
 #    By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 15:21:58 by parkharo          #+#    #+#              #
-#    Updated: 2023/02/18 14:50:27 by parkharo         ###   ########.fr        #
+#    Updated: 2023/02/18 14:55:04 by parkharo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJECT_FILES	=	$(SRCS_FILES:%.c=%.o)
 OBJECT2_FILES	=   $(SRCS2_FILES:%.c=%.o)
 OBJECTS			=	$(addprefix $(OBJECT_PATH), $(OBJECT_FILES))
 OBJECTS			+=  $(addprefix $(OBJECT_PATH), $(OBJECT2_FILES))
-OBJ 			:=  $(SRCS_FILES:$(SRCS_PATH)%.c=$(OBJECT_PATH)%.o)
+OBJ 			=  $(SRCS_FILES:$(SRCS_PATH)%.c=$(OBJECT_PATH)%.o)
 OBJ 			+=  $(SRCS_FILES2:$(SRCS2_PATH)%.c=$(OBJECT_PATH)%.o)
 
 COMPILE			=	gcc -Wall -Wextra -Werror
@@ -48,6 +48,9 @@ print2:
 	@echo "ASDASDAS"
 	@echo $(SRCS2_FILES)
 
+print3: 
+	@echo $(OBJECTS)
+
 $(NAME): $(OBJECTS) $(HEADERS)
 	@echo "$(NAME)     [$(COLOR_PENDING)Compiling...$(COLOR_RESET)]"
 	ar rcs $(NAME) $(OBJECTS) 
@@ -56,7 +59,7 @@ $(NAME): $(OBJECTS) $(HEADERS)
 	@echo "$(NAME)     [$(COLOR_SUCCESS)OK$(COLOR_RESET)]"
 	@echo "                  [$(COLOR_SUCCESS)FINISHED$(COLOR_RESET)]"
  
-$(OBJECT_PATH)%.o: $(SRCS)
+$(OBJECT_PATH)%.o: $(SRCS_FILES) $(SRCS_FILES2)
 	@mkdir $(OBJECT_PATH) 2>/dev/null || echo "" > /dev/null
 	@$(COMPILE) $(INCLUDES) -c $< -o $@ 
 
