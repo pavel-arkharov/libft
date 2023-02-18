@@ -6,32 +6,25 @@
 #    By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 15:21:58 by parkharo          #+#    #+#              #
-#    Updated: 2023/02/16 18:58:45 by parkharo         ###   ########.fr        #
+#    Updated: 2023/02/18 13:30:49 by parkharo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# CC = gcc
-# CFLAGS = -Wall -Wextra -Werror 
-
-
 NAME 			= libft.a
 
-SRC_PATH 		=	./libft/ft_printf/
-
+SRC_PATH 		=	./srcs/ft_printf/
 SRCS_FILES		=	$(wildcard *.c)
-
 SRCS			=	$(addprefix $(SRC_PATH), $(SRCS_FILES))
 
-LIB_SRC_PATH	=	./libft/
+LIB_SRC_PATH	=	./srcs/
 LIB_SRC_FILES	=	$(wildcard *.c)
-
 LIB_SRCS		=	$(addprefix $(LIB_SRC_PATH), $(LIB_SRC_FILES))
 
-LIB_OBJECT_PATH		=	./libft/objs/
+LIB_OBJECT_PATH		=	./srcs/objs/
 LIB_OBJECT_FILES	=	$(LIB_SRC_FILES:.c=.o)
 LIB_OBJECTS			=	$(addprefix $(LIB_OBJECT_PATH), $(LIB_OBJECT_FILES))
 
-OBJECT_PATH		=	./libft/ft_printf/objs/
+OBJECT_PATH		=	./srcs/ft_printf/objs/
 OBJECT_FILES	=	$(SRCS_FILES:%.c=%.o)
 OBJECTS			=	$(addprefix $(OBJECT_PATH), $(OBJECT_FILES))
 
@@ -49,31 +42,34 @@ COLOR_DEFAULT	=	\033[1;34m
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(LIB_OBJECTS) $(HEADERS)
+$(NAME): $(LIB_OBJECTS) $(OBJECTS) $(HEADERS)
 	@echo "$(NAME)     [$(COLOR_PENDING)Compiling...$(COLOR_RESET)]"
-	@ar rc $(NAME) $(OBJECTS) $(LIB_OBJECTS)
+	@ar rcs $(NAME) $(LIB_OBJECTS) $(OBJECTS) 
 	@ranlib $(NAME)
 	@echo "\033[A\033[K\033[A"
 	@echo "$(NAME)     [$(COLOR_SUCCESS)OK$(COLOR_RESET)]"
 	@echo "                  [$(COLOR_SUCCESS)FINISHED$(COLOR_RESET)]"
-
-$(OBJECT_PATH)%.o: $(SRC_PATH)%.c
+ 
+$(OBJECT_PATH)%.o: $(SRCS)
 	@mkdir $(OBJECT_PATH) 2>/dev/null || echo "" > /dev/null
 	@$(COMPILE) $(INCLUDES) -c $< -o $@ 
 
-$(LIB_OBJECT_PATH)%.o: $(LIB_SRC_PATH)%.c
+$(LIB_OBJECT_PATH)%.o: $(LIB_SRCS)
 	@mkdir $(LIB_OBJECT_PATH) 2>/dev/null || echo "" > /dev/null
 	@$(COMPILE) $(INCLUDES) -c $< -o $@
 
 clean:
-	@make -C ./libft clean
+	@echo "Deleting .o files..."
+	@rm -f $(LIB_OBJECTS)
 	@rm -f $(OBJECTS)
+	@rm -rf $(LIB_OBJECT_PATH)
 	@rm -rf $(OBJECT_PATH)
 
 fclean: clean
-	@make -C ./libft fclean
+	@echo "Cleaning up..."
 	@rm -f $(NAME)
 
 re: fclean all
+	@echo "Recompiling..."
 
 .PHONY: clean fclean re all
