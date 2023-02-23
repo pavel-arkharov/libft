@@ -34,7 +34,7 @@ The `libft` library includes several different types of functions, including:
 -   Memory manipulation functions (`ft_memcpy`, `ft_memccpy`, `ft_memset`, `ft_memmove`, `ft_memchr`, `ft_memcmp`)
 -   String manipulation functions (`ft_strlen`, `ft_strlcpy`, `ft_strlcat`, `ft_strchr`, `ft_strrchr`, `ft_strnstr`, `ft_strncmp`, `ft_strcmp`, `ft_strdup`)
 -   Character manipulation functions (`ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`)
--   Printing functions (`ft_printf`, `ft_fprintf`, `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`)
+-   Printing functions (`ft_printf`, `ft_dprintf`, `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`)
 -	File reading functions (`get_next_line`)
 -   List manipulation functions (`ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`)
 

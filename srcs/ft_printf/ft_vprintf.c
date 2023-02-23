@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf.c                                       :+:      :+:    :+:   */
+/*   ft_vprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 00:10:04 by parkharo          #+#    #+#             */
-/*   Updated: 2023/02/16 18:56:39 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:14:35 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static int	parse_format(char **str, t_parse *parser)
 	return (parser->length);
 }
 
-int	ft_fprintf(int fd, const char *format, ...)
+int	ft_vprintf(int fd, const char *format, va_list *args)
 {
 	int		ret;
 	char	*reader;
@@ -103,7 +103,7 @@ int	ft_fprintf(int fd, const char *format, ...)
 	ret = 0;
 	parser = init_parser(fd);
 	reader = (char *)format;
-	va_start(parser->args, format);
+	va_copy(parser->args, *args);
 	while (*reader)
 	{
 		if (*reader == '%')

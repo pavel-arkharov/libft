@@ -6,7 +6,7 @@
 /*   By: parkharo <parkharo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 23:15:59 by parkharo          #+#    #+#             */
-/*   Updated: 2023/02/16 18:55:27 by parkharo         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:18:09 by parkharo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,13 +115,11 @@ void			ft_strup(char **str);
 void			ft_tabdel(char ***tab);
 long			ft_pow(int nbr, int power);
 unsigned long	ft_sqrt(long nbr);
-
 /* PRINTF */
-
 typedef struct s_parse
 {
 	va_list	args;
-	int     fd;
+	int		fd;
 	int		hash;
 	int		length;
 	int		width;
@@ -138,33 +136,34 @@ typedef struct s_parse
 # define UNSET 0
 # define ACCOUNTED -42
 
-int		ft_fprintf(int fd, const char *format, ...);
-int		ft_printf(const char *format, ...);
-char	*ft_safejoin(char *s1, char *s2);
-int		find_specifier(char c);
-void	parse_typecast(t_parse **parser, char **str);
-void	parse_precision(t_parse **parser, char **str);
-void	parse_width(t_parse **parser, char **str);
-void	flush_parser(t_parse **parser);
-t_parse	*init_parser(int fd);
-int		writechar(t_parse *parser, char c);
-char	getwchar(t_parse *parser);
-void	add_one(char **str);
-int		handle_nan_inf(t_parse *parser, char **str, int *ret);
-int		if_nan_inf(long double arg, t_parse *parser, char **str);
-void	handle_big_prec(int *precision, long *tail);
-void	print_tail(long tail, int *ret, t_parse *parser);
-void	print_dot(int hash, int prec, int *ret, t_parse *parser);
+int				ft_vprintf(int fd, const char *format, va_list *args);
+int				ft_dprintf(int fd, const char *format, ...);
+int				ft_printf(const char *format, ...);
+char			*ft_safejoin(char *s1, char *s2);
+int				find_specifier(char c);
+void			parse_typecast(t_parse **parser, char **str);
+void			parse_precision(t_parse **parser, char **str);
+void			parse_width(t_parse **parser, char **str);
+void			flush_parser(t_parse **parser);
+t_parse			*init_parser(int fd);
+int				writechar(t_parse *parser, char c);
+char			getwchar(t_parse *parser);
+void			add_one(char **str);
+int				handle_nan_inf(t_parse *parser, char **str, int *ret);
+int				if_nan_inf(long double arg, t_parse *parser, char **str);
+void			handle_big_prec(int *precision, long *tail);
+void			print_tail(long tail, int *ret, t_parse *parser);
+void			print_dot(int hash, int prec, int *ret, t_parse *parser);
 
-int		printpercent(t_parse *parser);
-int		printchar(t_parse *parser);
-int		printstring(t_parse *parser);
-int		printpointer(t_parse *parser);
-int		printsignedint(t_parse *parser);
-int		printfloat(t_parse *parser);
-int		printhex(t_parse *parser);
-int		printoctal(t_parse *parser);
-int		printuint(t_parse *parser);
-int		printbinary(t_parse *parser);
+int				printpercent(t_parse *parser);
+int				printchar(t_parse *parser);
+int				printstring(t_parse *parser);
+int				printpointer(t_parse *parser);
+int				printsignedint(t_parse *parser);
+int				printfloat(t_parse *parser);
+int				printhex(t_parse *parser);
+int				printoctal(t_parse *parser);
+int				printuint(t_parse *parser);
+int				printbinary(t_parse *parser);
 
 #endif
